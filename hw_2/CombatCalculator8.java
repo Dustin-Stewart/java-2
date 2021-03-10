@@ -11,9 +11,9 @@ public class CombatCalculator8 {																	//class declaration
 																					
 																					
 														/*hero data variables*/
-		int PlyrHlth = 100;																			//declare variable for hero's health and initialize it as 100
-		int PlyrAtk	 = 12;																			//declare variable for hero's attack and initialize it as 12
-		int PlyrMgc = 0;																			//declare variable for hero's magic power and initialize it to 0
+		int HP = 100;																			//declare variable for hero's health and initialize it as 100
+		int AP	 = 12;																			//declare variable for hero's attack and initialize it as 12
+		int MP = 0;																			//declare variable for hero's magic power and initialize it to 0
 												
 														/*Various result texts */
 		String round1 = "For reasons unknown, you are about to fight ";								//declare string for first round of "combat"
@@ -22,11 +22,11 @@ public class CombatCalculator8 {																	//class declaration
 		
 														/*Game Mechanics*/	
 		int action = 0; 																			//Declare an interger to hold the players action selcection
-		int turncounter = 0;									
+		int turncounter = 0;																		//Turn counter
 				
 														/*loop Control*/
 		
-		while (MonstHlth > 0 && action	!= 4 && PlyrHlth >0){										/*Declare loop control variable and initialize it to be true, this says that 
+		while (MonstHlth > 0 && action	!= 4 && HP >0){										/*Declare loop control variable and initialize it to be true, this says that 
 																									while the mmonster is alive and you dont run, to continue the while statement*/
 			turncounter++;																			/*While the loop control variable is true, keep track of how many turns. 
 																									 this affects in game text*/
@@ -46,8 +46,8 @@ public class CombatCalculator8 {																	//class declaration
 														/*Report combat stats with spacing*/
 																	
 					System.out.printf("%s's Stamina: %d%n%n", MonsterName, MonstHlth);				//print the monster's health
-					System.out.printf("Your Stamina: %d%n", PlyrHlth);								//print the players health
-					System.out.printf("Your FP: %d (Freaky Power)%n%n", PlyrMgc);					//print the players magic points
+					System.out.printf("Your Stamina: %d%n", HP);								//print the players health
+					System.out.printf("Your FP: %d (Freaky Power)%n%n", MP);					//print the players magic points
 	
 														/* Combat Menu Prompt (action selections*/
 																	
@@ -59,7 +59,7 @@ public class CombatCalculator8 {																	//class declaration
 														/* Begin Turn*/
 														
 		System.out.printf("Wait, what are you about to do??? ");											//Prompt player for action
-		action = input.nextInt();																	//declare variable for user input (as number) and aquire value from scanner object																
+		action = input.nextInt();																        	//declare variable for user input (as number) and aquire value from scanner object																
 																								
 														/*Selection operations & Stat updaters*/
 			
@@ -70,24 +70,24 @@ public class CombatCalculator8 {																	//class declaration
 									}						
 									
 														//magic																																												
-					else if (action == 2 && PlyrMgc	>= 3) {																									/*else if plyr chose option 2, (check with equality operator).
+					else if (action == 2 && MP	>= 3) {																									/*else if plyr chose option 2, (check with equality operator).
 																																							if the player more than 3 magic points it works otherwise it prints 
 																																							alt text*/
 						System.out.printf("%n***%nYour freaky power is ready boo, and you cast a Wack Spell on %s for no apparent reason.%n", MonsterName);	//print spell message:
 							System.out.printf("The freakin' spell cut %s's HP in half!  WTF?%n***%n", MonsterName);										
 							 MonstHlth = MonstHlth / 2;																										//calculate damage and update monster health using division
-								PlyrMgc = PlyrMgc - 3;																	  									//reduce the players magic points by the spell cost using subtraction
+								MP = MP - 3;																	  									//reduce the players magic points by the spell cost using subtraction
 									}					
 																																								
 														//alternate message for trying to use magic without magic points
-					else if (action== 2 && PlyrMgc <3){
+					else if (action== 2 && MP <3){
 						System.out.printf("%n***%nThat Freaky Power ain't ready yet!%n***%n");									
 					}
 				
 														//charge
 					else if (action == 3) {																												//else if plyr chose option 3, (check with equality operator)
 						System.out.printf("%n***%nYou focus way too hard and charge your Freaky Power.%n***%n%n");										//print charging message:
-							PlyrMgc++;																													//increment magic points and update players magic using addition
+							MP++;																													//increment magic points and update players magic using addition
 									}																													//new hero magic is == old hero magic + 1	
 												
 														//escape																																																														
@@ -109,7 +109,7 @@ public class CombatCalculator8 {																	//class declaration
 					
 					
 						System.out.printf("You literally hurt yourself on accident trying to hurt %s.%nSeems habitual.%n-----------------------------------%n", MonsterName);			//result of test and lines for clarity																							//IF MONSTER HEALTH <= 0
-						PlyrHlth = PlyrHlth - MonstAtk;																																	//Plyr loses health equivalent to monster health
+						HP = HP - MonstAtk;																																	//Plyr loses health equivalent to monster health
 						}																				
 		
 						
@@ -121,8 +121,8 @@ public class CombatCalculator8 {																	//class declaration
 									}
 									
 														/*if plyr dies*/
-				if (PlyrHlth <=0) 	{
-					System.out.printf(%n"YOU KILLED YOURSELF. JUSTICE SERVED.");								//print death screen
+				if (HP <=0) 	{
+					System.out.printf("%nYOU KILLED YOURSELF. JUSTICE SERVED.");								//print death screen
 									}
 	}													/*end main method*/		
 }														/*end Class*/

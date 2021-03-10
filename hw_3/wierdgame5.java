@@ -9,7 +9,7 @@ import java.security.SecureRandom;
 												/*hero data class variables*/
 			static int HP = 0;																//declare static variable for hero's health and initialize it as 0
 			static int AP = 0;																//declare static variable for hero's attack and initialize it as 0
-			static int MP = 0;																//declare static variable for hero's magic power and initialize it to 0
+			static int MP;																//declare static variable for hero's magic power and initialize it to 0
 			static int XP = 0;
 												/*monster data class variables*/
 			static String MonsterName;														//declare variable for monsters name and initialize it 
@@ -48,7 +48,6 @@ String end = "You're Killing them!";														//declare string for final rou
 		else  {																				 //this block prints end game text
 				System.out.printf("%n%n%s%n~~~~~~~~~~~~~~~~~~%n", end);
 							}
-												/*Report combat stats with spacing*/
 															
 			System.out.printf("%s's Stamina: %d%n%n", MonsterName, MonstHlth);			     //print the monster's health
 			System.out.printf("Your Stamina: %d%n", HP);									 //print the players health
@@ -138,9 +137,6 @@ String end = "You're Killing them!";														//declare string for final rou
 									else if (action == 2){
 									AP+=1;
 									}
-									else if (action == 3){
-									MP +=3;	
-									}
 									
 									else if (action == 666){
 									HP +=400;
@@ -148,7 +144,7 @@ String end = "You're Killing them!";														//declare string for final rou
 									points = 0;
 									}	
 									else {
-										System.out.println("Type A Number 1 through 3");
+										System.out.println("Type A Number 1,2, or 3");
 										points++;
 									}
 							}

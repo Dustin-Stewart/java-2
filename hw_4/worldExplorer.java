@@ -71,6 +71,7 @@ public class worldExplorer{ //begin class
 				roomExitArray[6][WEST] =-1;
 
 			while (runGame == true){
+				
 				System.out.println(descriptions[biome]); /*print the current rooms description (use the current rooms variable as the index to 
 														   the rooms descritption array and dereference the string to print it) */
 				System.out.println("Which way will you go: (n)orth,(e)ast,(s)outh, or (w)est?");
